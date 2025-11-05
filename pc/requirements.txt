@@ -1,0 +1,6 @@
+pyserial
+pyautogui
+
+install with 
+
+pip install -r pc/requirements.txt

@@ -19,7 +19,7 @@ Trigger a tab change on your laptop by waving your hand near an ultrasonic senso
 - Breadboard (optional)
 - 1 × 2kΩ & 1 × 1kΩ resistors (voltage divider for HC-05 RX)
 
-### Wiring (summary)
+### Wiring 
 **HC-SR04**
 - VCC -> 5V
 - GND -> GND
@@ -66,6 +66,26 @@ See `pc/requirements.txt`.
 
 ---
 
+## How to Run
+
+### Step 1: Upload Arduino Code
+- Open Arduino IDE
+- Go to `File > Open > arduino/ultrasonic_bluetooth.ino`
+- Select your board & COM port, then click **Upload**
+
+### Step 2: Pair Bluetooth Module (HC-05)
+- Power the Arduino setup
+- Pair your HC-05 with laptop
+- Note the COM port assigned (e.g. COM5)
+
+### Step 3: Run the Python Listener
+```bash
+cd pc
+pip install -r requirements.txt
+python tab_switcher.py --port COM5 --debug
+
+---
+
 ## Platform notes & shortcuts
 - **Windows / Linux**: `ctrl + tab` (next tab)
 - **macOS**: `command + option + right` (next tab in many browsers)
@@ -74,7 +94,7 @@ These are the keys used by the script. You can change them in `tab_switcher.py`.
 
 ---
 
-## Pairing HC-05 (quick)
+## Pairing HC-05 
 - Put HC-05 in discoverable mode (power it up). Default PIN is usually `1234` or `0000`.
 - Windows: Settings -> Bluetooth & devices -> Add device. After pairing, check Device Manager -> Ports (COM & LPT) for the COM port.
 - macOS: System Settings -> Bluetooth. After pairing, you may need to determine the `/dev/tty.*` device from `/dev` or `Bluetooth Explorer` (part of Additional Tools), or use `ls /dev/tty.*` before/after pairing.
@@ -93,14 +113,3 @@ These are the keys used by the script. You can change them in `tab_switcher.py`.
 - `pyautogui` fails to send keys: grant accessibility/automation permissions (macOS) or run with proper privileges.
 - Wrong COM port: double-check ports before running.
 
----
-
-## How to push to GitHub (simple)
-```bash
-git init
-git add .
-git commit -m "Initial commit: Ultrasonic Bluetooth tab switcher"
-# create remote repo on GitHub and then:
-git remote add origin <your-repo-url>
-git branch -M main
-git push -u origin main

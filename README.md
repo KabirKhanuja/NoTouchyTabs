@@ -83,6 +83,7 @@ See `pc/requirements.txt`.
 cd pc
 pip install -r requirements.txt
 python tab_switcher.py --port COM5 --debug
+```
 
 ---
 

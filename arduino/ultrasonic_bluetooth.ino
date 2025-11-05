@@ -2,10 +2,10 @@
 
 #define TRIG_PIN 2
 #define ECHO_PIN 3
-#define BT_RX 10 // Arduino pin that reads from HC-05 TX
-#define BT_TX 11 // Arduino pin that writes to HC-05 RX
+#define BT_RX 10 // arduino pin that reads from HC-05 TX
+#define BT_TX 11 // arduino pin that writes to HC-05 RX
 
-SoftwareSerial BTSerial(BT_RX, BT_TX); // RX, TX
+SoftwareSerial BTSerial(BT_RX, BT_TX); 
 
 void setup() {
   Serial.begin(9600);
@@ -22,7 +22,7 @@ float readDistanceCm() {
   digitalWrite(TRIG_PIN, LOW);
 
   long duration = pulseIn(ECHO_PIN, HIGH, 30000); // timeout 30 ms
-  if (duration == 0) return -1.0; // no reading
+  if (duration == 0) return -1.0; // no echo received
   float distance = (duration * 0.0343) / 2.0; // cm
   return distance;
 }
@@ -37,7 +37,7 @@ void loop() {
     if (d < 5.0) {
       BTSerial.println("SWITCH");
       Serial.println("SWITCH (sent to BT)");
-      delay(1000); // simple debounce — wait 1s
+      delay(1000); 
     }
   }
   delay(100);

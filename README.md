@@ -1,4 +1,4 @@
-# NoTouchTabs
+# NoTouchyTabs
 
 **NoTouchTabs** is an Arduino-based system that automatically switches your computer’s tab or application window when a door opens.  
 It helps users quickly hide or change their on-screen content when someone (like a parent) unexpectedly enters the room.
